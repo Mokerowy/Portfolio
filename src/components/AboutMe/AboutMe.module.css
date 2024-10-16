@@ -1,0 +1,80 @@
+.container {
+  position: absolute;
+  top: 30em;
+  margin-left: 20em;
+  display: inline-block;
+}
+
+.text,
+.text2,
+.text3 {
+  color: rgb(214, 209, 209);
+  font-size: 2em;
+  letter-spacing: 10px;
+  font-family: monospace;
+  width: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: 5px solid rgb(214, 209, 209); /* Domyślnie border-right jest ustawiony */
+}
+
+.text {
+  animation: typing 2s steps(26) 1s forwards, removeBorder 1s forwards 3s,
+    cursor 0.4s step-end infinite alternate, hideText 1s forwards 7s;
+}
+
+.text2 {
+    border-right: 5px solid rgb(0, 0, 0);
+  animation:showBorder 3s forwards 2s ,typing 2s steps(26) 4s forwards, removeBorder 1s forwards 5s,
+    cursor 0.4s step-end infinite alternate, hideText 1s forwards 10s;
+}
+
+.text3 {
+    border-right: 5px solid rgb(0, 0, 0);
+  animation:showBorder 2s forwards 5s ,typing 2s steps(26) 7s forwards, removeBorder 1s forwards 8s,
+    cursor 0.4s step-end infinite alternate, hideText 1s forwards 14s;
+}
+
+@keyframes hideText {
+  from {
+    display: inline-block;
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+    display: none;
+  }
+}
+
+@keyframes cursor {
+  50% {
+    border-color: transparent;
+  }
+}
+
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes removeBorder {
+  0% {
+    border-right-color: rgb(214, 209, 209); /* Kolor przed zniknięciem */
+  }
+  100% {
+    border-right-color: transparent; /* Kolor po zniknięciu */
+  }
+}
+
+@keyframes showBorder{
+    0%{
+        border-right-color: rgb(0, 0, 0);
+    }
+    100%{
+        border-right-color: rgb(214, 209, 209);
+    }
+}
